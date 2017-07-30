@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Animals</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body background= "assets/images/giphy-downsized.gif; size: 2000px;height: auto;">
+
+<!-- startwrapper -->
+
+  <div class="container">
+    <h1>Animal Search</h1>
+    <hr>
+
+    <!-- animals will get dumped here -->
+    <div id="animals-view"></div>
+
+    <form id="animal-form">
+      <label for="animal-input">Add a Animal</label>
+      <input type="text" id="animal-input"><br>
+
+      <!-- Button triggers new animal to be added -->
+      <input id="add-animal" type="submit" value="Add an Animal">
+    </form>
+
+     <button id="cat-button">Magical Dog button</button>
+      <button id="Tiger-button">Magical Tiger button</button>
+       <button id="elephant-button">Magical Elephant button</button>
+
+      <div id="images">
+  </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Initial array of animals
+      var animals = [ "dog","cat","falcon","elephant","gifferafe","lion","tiger","brown bear","grizzly","egret","cockatoo","parrot","baboon","gorilla","chimpanzee","hippo","sloth","bald eagle","sparrow","robin","blue jay","clydesdale","donkey","burrowing owl","prairie dog","lemur",]
+
+      
+      // Function for displaying animal data
+      function renderButtons() {
+
+        // Deleting the animal buttons prior to adding new animal buttons
+        // (this is necessary otherwise we will have repeat buttons)
+        $("#animals-view").empty();
+
+        // Looping through the array of animals
+        for (var i = 0; i < animals.length; i++) {
+
+          // Then dynamicaly generating buttons for each animal in the array.
+          // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+          var a = $("<button>");
+          // Adding a class
+          a.addClass("animal");
+          // Adding a data-attribute with a value of the animal at index i
+          a.attr("data-name", animals[i]);
+          // Providing the button's text with a value of the animal at index i
+          a.text(animals[i]);
+          // Adding the button to the HTML
+          $("#animals-view").append(a);
+        }
+      }
+
+      // This function handles events where one button is clicked
+      $("#add-animal").on("click", function(event) {
+        // event.preventDefault() prevents the form from trying to submit itself.
+        // We're using a form so that the user can hit enter instead of clicking the button if they want
+        event.preventDefault();
+
+        // This line will grab the text from the input box
+        var animal = $("#animal-input").val().trim();
+        // The animal from the textbox is then added to our array
+        animals.push(animal);
+
+        // calling renderButtons which handles the processing of our animal array
+        renderButtons();
+      });
+
+      // Calling the renderButtons function at least once to display the initial list of animals
+      renderButtons();
+
+
+
+      // startofmess
+       $("#cat-button").on("click", function() {
+
+
+      //
+      var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=dogs";
+
+      //
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      //
+      .done(function(response) {
+
+        //
+        var imageUrl = response.data.image_original_url;
+
+        //
+        var catImage = $("<img>");
+
+        //
+        catImage.attr("src", imageUrl);
+        catImage.attr("alt", "cat image");
+
+        //
+        $("#images").prepend
+        (catImage);
+      });
+    });
+
+
+       // BUTTON2
+        $("#Tiger-button").on("click", function() {
+
+
+      //
+      var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=tiger";
+
+      //
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      //
+      .done(function(response) {
+
+        //
+        var imageUrl = response.data.image_original_url;
+
+        //
+        var catImage = $("<img>");
+
+        //
+        catImage.attr("src", imageUrl);
+        catImage.attr("alt", "cat image");
+
+        //
+        $("#images").prepend
+        (catImage);
+      });
+    });
+
+        // startofbutton3
+
+         $("#elephant-button").on("click", function() {
+
+
+      //
+      var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=elephant";
+
+      //
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      //
+      .done(function(response) {
+
+        //
+        var imageUrl = response.data.image_original_url;
+
+        //
+        var catImage = $("<img>");
+
+        //
+        catImage.attr("src", imageUrl);
+        catImage.attr("alt", "cat image");
+
+        //
+        $("#images").prepend
+        (catImage);
+      });
+    });
+        // endofbutton3
+      // endofmess
+
+    </script>
+
+  
+  
+  <footer class="footer">  &copy; Created by Mike Jackson</footer>
+  </div>
+
+
+  
+</body>
+
+</html>

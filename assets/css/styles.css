@@ -1,0 +1,55 @@
+.container{
+	max-width: 600px;
+	height: auto;
+	background-color: rgba(105, 97, 214, 0.45);
+	margin-right: auto;
+	margin-left: auto;
+	padding: 15px;
+	text-align: center;
+}
+ .footer{
+ 	max-width: 630px;
+ 	height: auto;
+ 	padding-top: 15px;
+ 	padding-bottom: 15px;
+ 	background-color: black;
+ 	margin-right: auto;
+ 	margin-left: auto;
+ 	clear: both;
+ 	text-align: center;
+ 	color: white;
+
+ }
+
+ #animals-view{
+ 	background-color: rgba(244, 67, 67, 0.64);
+ 	
+
+ }
+
+
+ #images{
+ 	max-width: 500px;
+ 	height: auto;
+ 	/*background-color: green;*/
+ 	margin-left: auto;
+ 	margin-right: auto;
+
+
+ }
+
+ body{
+ 	background-repeat: no-repeat;
+ 	background-size: 200%;
+ 	background-position: center center;
+
+ }
+
+ button{
+ 	text-align: center;
+ }
+
+ .img{
+ 	width: 2000px;
+ 	height: auto;
+ }
